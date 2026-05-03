@@ -81,7 +81,7 @@ namespace UnityKit
 
         private void ApplyRotation()
         {
-            transform.localRotation = initialRotation * Quaternion.Euler(rotationX, rotationY, rotationZ);
+            transform.localRotation = initialRotation * Quaternion.Euler(rotationX, -rotationY, rotationZ);
         }
 
         private void ApplyScale()

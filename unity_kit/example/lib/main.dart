@@ -121,10 +121,18 @@ class _MainScreenState extends State<MainScreen> {
 
     for (final entry in params.entries) {
       bridge.sendWhenReady(
-        UnityMessage.command('SetParameter', {
-          'param': entry.key,
-          'value': entry.value,
-        }),
+        // UnityMessage.command('SetParameter', {
+        //   'param': entry.key,
+        //   'value': entry.value,
+        // }),
+        UnityMessage.routed(
+          'Cube',
+          'SetParameter',
+          {
+            'param': entry.key,
+            'value': entry.value,
+          },
+        ),
       );
     }
   }
@@ -135,10 +143,18 @@ class _MainScreenState extends State<MainScreen> {
 
   void _onSliderChanged(String param, double value) {
     _bridge?.sendWhenReady(
-      UnityMessage.command('SetParameter', {
-        'param': param,
-        'value': value,
-      }),
+      // UnityMessage.command('SetParameter', {
+      //   'param': param,
+      //   'value': value,
+      // }),
+      UnityMessage.routed(
+        'Cube',
+        'SetParameter',
+        {
+          'param': param,
+          'value': value,
+        },
+      ),
     );
   }
 
